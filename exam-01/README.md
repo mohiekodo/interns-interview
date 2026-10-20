@@ -18,11 +18,11 @@ Each command should print a version number. If you get "command not found" or "n
 
 ## Project files
 
-| File         | What it is                                         |
-|--------------|----------------------------------------------------|
-| `index.js`   | The entry point. Running it starts the app.        |
-| `users.json` | The list of users used in the exam. Do not edit it. |
-| `README.md`  | This file.                                         |
+| File         | What it is                                                              |
+|--------------|-------------------------------------------------------------------------|
+| `index.js`   | The entry point. Running it starts the app.                             |
+| `users.js`   | The exam file. It holds the list of users in a variable. Do not change the list. |
+| `README.md`  | This file.                                                              |
 
 ## Install
 

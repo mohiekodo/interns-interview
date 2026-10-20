@@ -3,13 +3,13 @@
 **Level:** Junior / Fresh grad
 **Suggested time:** 1 to 1.5 hours
 **Environment:** Windows, Git for Windows, Node.js (LTS). Use the terminal for every step (PowerShell, CMD or Git Bash).
-**Rules:** Plain JavaScript only. You may use Node's built-in modules (`fs`, `path`), but no external libraries.
+**Rules:** Plain JavaScript only, no external libraries.
 
 ---
 
 ## What you will build
 
-A small in-memory **user manager**: it loads a list of users from a JSON file and lets you add, find and delete users, and find the oldest and youngest one.
+A small in-memory **user manager**: it keeps a list of users in a variable and lets you add, find and delete users, and find the oldest and youngest one.
 
 ---
 
@@ -33,7 +33,7 @@ A small in-memory **user manager**: it loads a list of users from a JSON file an
 
 ## Part 2: The task
 
-The repository contains a file called `users.json` (in the root folder). It holds an array of users. Do **not** edit this file.
+The repository contains a file called `users.js` (in the root folder). At the top of it, the list of users is already stored in a variable called `users`. Write all your code **below the list, in the same file**. Do **not** change the users in the list.
 
 Each user has these attributes, and **all seven are required**:
 
@@ -49,9 +49,9 @@ Each user has these attributes, and **all seven are required**:
 
 ### Your work
 
-Create a file called `users.js` in the root of the repository and implement the following.
+Implement the following functions in `users.js`.
 
-1. **Load the data.** Read `users.json` and store its content in a variable called `users`.
+0. **The data (already done for you).** The list is in the variable `users`.
 
    Example:
    ```js
@@ -68,7 +68,7 @@ Create a file called `users.js` in the root of the repository and implement the 
    // }
    ```
 
-2. **`addUser(user)`**
+1. **`addUser(user)`**
    - Validates the user object using the rules in the table above.
    - If valid, adds it to `users` and returns the added user.
    - If invalid, throws an `Error` with a clear message saying which attribute failed.
@@ -102,7 +102,7 @@ Create a file called `users.js` in the root of the repository and implement the 
    // (the wording of your message is up to you)
    ```
 
-3. **`findUser(id)`**
+2. **`findUser(id)`**
    - Receives a user `id` (a number), for example `3`.
    - Returns the user, or `null` if not found.
 
@@ -115,7 +115,7 @@ Create a file called `users.js` in the root of the repository and implement the 
    findUser(999); // null
    ```
 
-4. **`deleteUser(id)`**
+3. **`deleteUser(id)`**
    - Receives a user `id`, same as `findUser`.
    - Removes the user from `users` and returns the removed user, or `null` if not found.
 
@@ -129,7 +129,7 @@ Create a file called `users.js` in the root of the repository and implement the 
    deleteUser(5); // null (already deleted)
    ```
 
-5. **`getOldestAndYoungest()`**
+4. **`getOldestAndYoungest()`**
    - Returns `{ oldest, youngest }`, decided by **`birthDate`**.
    - If two users are tied, return the one that appears **first in the list**.
 
@@ -139,19 +139,17 @@ Create a file called `users.js` in the root of the repository and implement the 
    // { oldest: { ...a full user object }, youngest: { ...a full user object } }
    ```
 
-**Also required:**
-- Export `users` and the four functions (`addUser`, `findUser`, `deleteUser`, `getOldestAndYoungest`) so they can be imported from another file.
-- Your functions must **not** print anything (`console.log`). They return values or throw errors.
+**Also required:** your functions must **not** print anything (`console.log`). They return values or throw errors.
 
 ---
 
 ## Part 3: Prove it works
 
-Create a file called `demo.js` that imports from `users.js`, calls each function once, and prints the results.
+At the **bottom** of `users.js`, below your functions, call each function once and print the results with `console.log`.
 
-Run it from the terminal:
+Run the file from the terminal:
 ```
-node demo.js
+node users.js
 ```
 
 ---
@@ -159,7 +157,7 @@ node demo.js
 ## Part 4: Git workflow
 
 - Commit your work in **small steps**: at least **4 commits**, with clear messages that say what you did (for example `feat: add validation to addUser`). Messages like `update` or `fix` are not accepted.
-- Do not commit `node_modules`, system files, or any change to `users.json`.
+- Do not commit `node_modules` or system files, and do not change the users in the list.
 - Push your branch:
   ```
   git push -u origin feature/users-<your-first-name>
@@ -169,7 +167,7 @@ node demo.js
 
 ## Bonus (optional, only if you finish early)
 
-Do these only after everything above works and is committed. Export any new function too.
+Do these only after everything above works and is committed.
 
 1. **`getFirstAndLastHired()`**
    - Returns `{ firstHired, lastHired }`, decided by **`startDate`**. Ties: the first in the list.
@@ -208,8 +206,8 @@ Do these only after everything above works and is committed. Export any new func
 - [ ] Repository cloned into a directory called `mentees-exams`
 - [ ] Project runs locally (screenshot / terminal output as proof)
 - [ ] Your own branch, with nothing committed to `main`
-- [ ] `users.js` with the 4 functions
-- [ ] `demo.js` that runs with `node demo.js`
+- [ ] `users.js` with the 4 functions, and results printed at the bottom
+- [ ] `node users.js` runs without errors
 - [ ] 4+ commits with clear messages
 - [ ] Branch pushed
 
