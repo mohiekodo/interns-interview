@@ -142,3 +142,65 @@ let users = [
 ];
 
 // ---- Write your functions below this line ----
+function printusers() {
+  console.log("number of users" + users.length);
+}
+
+printusers();
+
+function addUser (user) {
+  if (typeof user.id !== "number" ){
+    console.error("id must be a number")
+    return;
+  }
+  if (user.age < 18 || user.age >100) {
+    console.error("age must be a whole number fom 18 to 100");
+    return;
+  }
+    users.push(user);
+  
+}
+let user = {
+   id: 17,
+  email: "sara.omar@example.com",
+  firstName: "Sara",
+  lastName: "Omar",
+  age: 17,
+  startDate: "2026-10-01",
+  birthDate: "2009-05-20"
+};
+
+ addUser(user);
+ printusers();
+
+function findUser(id) {
+  return users.find (user => user.id ===id) || null;
+}
+console.log(findUser(3));
+console.log(findUser(999));
+
+function deleteUser(id) {
+  const index = users.findIndex(user=> user.id ===id);
+  if (!user) {
+    return null;
+  }
+  users.splice(users.indexOf(user) , 1);
+  return user;
+}
+
+console.log(deleteUser(5));
+console.log(deleteUser(999));
+deleteUser(user);
+printusers();
+
+function getOldestAndYoungest(){
+  let oldest = users[0];
+  let youngest = users[0];
+  for (let user of users) {
+    if (user.birthdate < oldest.birthdate) oldest= user;
+    if (user.birthdate > youngest.birthdate) youngest= user;
+
+  }
+  console.log(getOldestAndYoungest());
+  getOldestAndYoungest();
+}
